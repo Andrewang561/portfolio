@@ -4,7 +4,7 @@ function App() {
 
   return (
     <>
-      <button>Andrew Wang's Portfolio</button>
+      <button className="introButton">Andrew Wang's Portfolio</button>
     </>
   )
 }

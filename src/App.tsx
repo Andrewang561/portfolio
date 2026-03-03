@@ -4,23 +4,28 @@ import { useState } from "react"
 
 function App() {
   const [isHovered, setIsHovered] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
 
   return (
     <>
       <div className="introButtonContainer">
-        <motion.button 
+        {!isClicked ? (<motion.button 
           initial={{ opacity: 0, scale: 0}}
           animate={{ opacity: 1, scale: 1}}
           whileHover={{ scale: 1.1}}
           whileTap={{ scale: 0.9}}
           className="introButton"
           onHoverStart={() => setIsHovered(true)}
-          onHoverEnd={() => setIsHovered(false)}>
+          onHoverEnd={() => setIsHovered(false)}
+          onClick={() => setIsClicked(!isClicked)}
+          transition={{ duration: 0.3 }}
+          exit={{ opacity: 0 }}
+          >
             Andrew Wang's Portfolio
-        </motion.button>
+        </motion.button>) : null}
       </div>
       <AnimatePresence>
-          {isHovered && (
+          {!isClicked && isHovered && (
             <motion.div
               className="hoverMessageIntro"
               initial={{ opacity: 0, y: 100 }}

@@ -8,6 +8,8 @@ function App() {
 
   return (
     <>
+      <motion.div className="portfolio" animate={{ opacity: !isClicked ? 0.2 : 1}}>
+        text text text</motion.div>
       <div className="introButtonContainer">
         {!isClicked ? (<motion.button 
           initial={{ opacity: 0, scale: 0}}
